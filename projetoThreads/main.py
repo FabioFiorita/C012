@@ -3,7 +3,7 @@ from playsound import playsound
 import requests
 import time
 from os import chdir
-from PIL import Image, ImageSequence
+from PIL import Image
 
 chdir("/Users/fabiofiorita/Repositórios/C012/projetoThreads/")
 
