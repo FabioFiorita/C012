@@ -1,9 +1,8 @@
 from threading import Thread
 from playsound import playsound
-import requests
 import time
 from os import chdir
-from PIL import Image, ImageSequence
+import subprocess
 
 #chdir("/Users/fabiofiorita/Repositórios/C012/projetoThreads/")
 
@@ -121,24 +120,14 @@ But it don't matter no
         print(line)
         time.sleep(2)
 
-def showGif():
-    canvas = Image.new("RGB",(500, 274),"white")
-    gif = Image.open('monkeys.gif', 'r')
-    frames = []
-    try:
-        while 1:
-            frames.append(gif.copy())
-            gif.seek(len(frames))
-    except EOFError:
-        pass
-
-    for frame in frames:
-        canvas.paste(frame)
-        canvas.show()
+def showVideo():
+    time.sleep(35)
+    subprocess.Popen(["open", '/Users/fabiofiorita/Repositórios/C012/projetoThreads/dance.mp4'])
+    
         
-#t1 = Thread(target=playSong)
-#t2 = Thread(target=showLyrics)
-t3 = Thread(target=showGif)
-#t2.start()
-#t1.start()
+t1 = Thread(target=playSong)
+t2 = Thread(target=showLyrics)
+t3 = Thread(target=showVideo)
+t2.start()
+t1.start()
 t3.start()
