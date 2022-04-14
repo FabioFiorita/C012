@@ -7,7 +7,34 @@
 </head>
 <body>
     <h1>Ready Queue</h1>
-    <div tela></div>
-    <script src="shortestJobFirst.js"></script>
+    <form action="/projetoReadyQueue/roundRobin.js">
+        <select name="alg">
+            <option value="Shortest Job First">SJF</option>
+            <option value="Round Robin">SRT</option>
+        </select>
+        <button run>Rodar</button>
+    </form>
+
+    <div>
+        <div class="bar">
+            <div class="atual"></div>
+        </div>
+    </div>
+    <script>
+        const button = document.querySelector('button[run]');
+        const progressBar = () => {
+            const bar = document.querySelector('.bar');
+            const atual = document.querySelector('.atual');
+            let atualWidth = parseInt(atual.style.width);
+            const barWidth = parseInt(bar.style.width);
+            //if (width < barWidth) {
+                width += 1;
+                atual.style.width = width + '%';
+            //}
+        };
+        button.onclick = () => {
+            progressBar();
+        };
+    </script>
 </body>
 </html>
