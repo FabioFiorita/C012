@@ -5,7 +5,7 @@ import time
 from os import chdir
 from PIL import Image, ImageSequence
 
-chdir("/Users/fabiofiorita/Repositórios/C012/projetoThreads/")
+#chdir("/Users/fabiofiorita/Repositórios/C012/projetoThreads/")
 
 def playSong():
     playsound('song.wav', True)
@@ -136,9 +136,9 @@ def showGif():
         canvas.paste(frame)
         canvas.show()
         
-t1 = Thread(target=playSong)
-t2 = Thread(target=showLyrics)
+#t1 = Thread(target=playSong)
+#t2 = Thread(target=showLyrics)
 t3 = Thread(target=showGif)
-t2.start()
-t1.start()
+#t2.start()
+#t1.start()
 t3.start()
