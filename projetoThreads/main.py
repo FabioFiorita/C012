@@ -4,7 +4,7 @@ import time
 from os import chdir
 import subprocess
 
-#chdir("/Users/fabiofiorita/Repositórios/C012/projetoThreads/")
+chdir("/Users/fabiofiorita/Repositórios/C012/projetoThreads/")
 
 def playSong():
     playsound('song.wav', True)

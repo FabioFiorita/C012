@@ -2,10 +2,9 @@ const sjf = (processes) => {
     let sortedProcess = processes.sort((a, b) => {
         return a.burstTime - b.burstTime
     })
-    const tela = document.querySelector('tela')
     sortedProcess.forEach(process => {
         while (process.burstTime > 0) {
-            tela.appendChild(process.elemento)
+            console.log(`Processo: ${process.name}: ${process.burstTime}`)
             process.burstTime--
         }
     })
