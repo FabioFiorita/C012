@@ -1,9 +1,12 @@
 const roundRobin = (processes, quantum) => {
+    let ms = 0
     while (processes.length > 0) {
         processes.forEach(process => {
             for(let i = 0; i < quantum; i++) {
                 if (process.burstTime > 0) {
                     console.log(`Processo: ${process.name}: ${process.burstTime}`)
+                    ms++
+                    console.log(`Tempo: ${ms}`)
                     process.burstTime--
                 }
             }

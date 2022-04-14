@@ -1,10 +1,10 @@
-const sjf = (processes) => {
+function sjf(processes) {
     let sortedProcess = processes.sort((a, b) => {
         return a.burstTime - b.burstTime
     })
     sortedProcess.forEach(process => {
         while (process.burstTime > 0) {
-            console.log(`Processo: ${process.name}: ${process.burstTime}`)
+            showSJF(process)
             process.burstTime--
         }
     })
@@ -20,4 +20,11 @@ p4 = { name: "p4", burstTime: 3 }
 
 processes = [p1, p2, p3, p4]
 
-sjf(processes)
+function showSJF(process) {
+    let elem = document.getElementById("teste");
+    let elem2 = document.createElement("div")
+    elem2.innerHTML = `Processo: ${process.name}: ${process.burstTime}`
+    elem.appendChild(elem2)
+}
+
+document.querySelector("button").onclick = () => sjf(processes)
