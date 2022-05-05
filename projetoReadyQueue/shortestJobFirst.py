@@ -5,24 +5,21 @@ class Process:
         self.name = name
         self.burstTime = burstTime
 
-def ordenar(processes):
-    ordenated_processes = sorted(processes, key=lambda x: x.burstTime)
-    return (ordenated_processes)
+def sort(processes):
+    sorted_processes = sorted(processes, key=lambda x: x.burstTime)
+    return (sorted_processes)
 
 def sjf(processes):
-    ordenated_processes = ordenar(processes)
+    sorted_processes = sort(processes)
     ms = 0
-    while len(ordenated_processes) > 0:
-        for process in ordenated_processes:
-            while process.burstTime > 0:
-                print("Processo: " + process.name + " - BurstTime: " + str(process.burstTime))
-                ms += 1
-                time.sleep(1)
-                print("Tempo: " + str(ms))
-                process.burstTime -= 1
-            if process.burstTime <= 0:
-                ordenated_processes.remove(process)
-
+    for process in sorted_processes:
+        while process.burstTime > 0:
+            print("Processo: " + process.name + " - BurstTime: " + str(process.burstTime))
+            ms += 1
+            time.sleep(1)
+            print("Tempo: " + str(ms))
+            process.burstTime -= 1
+                
 p1 = Process("p1", 6)
 p2 = Process("p2", 8)
 p3 = Process("p3", 7)
