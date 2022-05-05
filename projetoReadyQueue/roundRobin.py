@@ -5,19 +5,26 @@ class Process:
         self.name = name
         self.burstTime = burstTime
 
+def calculate_total_burst_time(processes):
+    total_burst_time = 0
+    for process in processes:
+        total_burst_time += process.burstTime
+    return total_burst_time
+
 def roundRobin(processes, quantum):
     ms = 0
-    while len(processes) > 0:
+    total_burst_time = calculate_total_burst_time(processes)
+    
+    while total_burst_time > 0:
         for process in processes:
-            for i in range(quantum):
+            for _ in range(quantum):
                 if process.burstTime > 0:
                     print("Processo: " + process.name + " - BurstTime: " + str(process.burstTime))
                     ms += 1
-                    time.sleep(1)
                     print("Tempo: " + str(ms))
                     process.burstTime -= 1
-            if process.burstTime <= 0:
-                processes.remove(process)
+                    total_burst_time -= 1
+                    time.sleep(1)
 
 p1 = Process("p1", 24)
 p2 = Process("p2", 3)
